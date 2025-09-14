@@ -1,23 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const App = () => {
-  const handleclick = () => {
-    alert("Clicked")
+
+  const [username, setUsername] = useState("Sujal")
+
+  const change = () => {
+    setUsername("Sujal dnn")
+    console.log(username);
+    
   }
-
-  const handleparamclick = (msg) => {
-    alert(msg)
-  }
-
-  // const wrapper = () => handleparamclick("Hello")
-
   return (
-    <>
-    <h1>{2+3}</h1>
-      <div>App</div>
-      <button onClick={handleclick}>Click</button>
-      <button onClick={ () => handleparamclick("Hello")}>Click</button>
-    </>
+    <div>
+      <h1>Usename</h1>
+      <h2>{username}</h2>
+      <button onClick={change}>Change name</button>
+    </div>
   )
 }
 
