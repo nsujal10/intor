@@ -1,19 +1,20 @@
 import React, { useState } from 'react'
+import Create from './components/Create';
+import Read from './components/Read';
 
 const App = () => {
 
-  const [username, setUsername] = useState("Sujal")
+const [users, setusers] = useState([
+  {name:"John", age:30},
+  {name:"Jane", age:25},
+  {name:"Doe", age:40},
+]);
 
-  const change = () => {
-    setUsername("Sujal dnn")
-    console.log(username);
-    
-  }
+
   return (
     <div>
-      <h1>Usename</h1>
-      <h2>{username}</h2>
-      <button onClick={change}>Change name</button>
+      <Create />
+      <Read users={users} setusers={setusers}/>
     </div>
   )
 }
