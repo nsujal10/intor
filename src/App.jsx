@@ -1,20 +1,64 @@
 import React, { useState } from 'react'
-import Create from './components/Create';
-import Read from './components/Read';
 
 const App = () => {
-
-const [users, setusers] = useState([
-  {name:"John", age:30},
-  {name:"Jane", age:25},
-  {name:"Doe", age:40},
-]);
-
+  const [todos, settodos] = useState([
+    {id:1, title:"Kaam Kar", isCompleted:true},
+  ])
+  const [title, settitle] = useState("")
+  const [Completed, setCompleted] = useState(false)
+  const [gender, setgender] = useState("male")
+  const [city, setcity] = useState("delhi")
 
   return (
     <div>
-      <Create />
-      <Read users={users} setusers={setusers}/>
+      <h1>Create Tasks</h1>
+        <form>
+          <input 
+          onChange={(e) => settitle(e.target.value)}
+          value={title}
+          type="text" 
+          placeholder='Task Title' 
+          />
+
+          <br />  <br /> 
+          <input 
+          onChange={(e) => setCompleted(e.target.checked)}
+          type="checkbox"
+          /> 
+          Completed
+          <br /> <br />
+
+          <input 
+          value="male"
+          onChange={(e) => setgender(e.target.checked)}
+          checked={gender=="male" && true}
+          type="radio"
+          /> 
+          Male
+
+          <br /> <br />
+
+          <input 
+          value="female"
+          onChange={(e) => setgender(e.target.checked)}
+          checked={gender=="female" && true}
+          type="radio"
+          /> 
+          Female
+
+          <br /> <br />
+
+        <select 
+        value={city}
+        onChange={(e) => setcity(e.target.value)}>
+          <option value="delhi">Delhi</option>
+          <option value="mumbai">Mumbai</option>
+          <option value="kolkata">Kolkata</option>
+        </select>
+
+        <br /> <br />
+          <button>Create Tool</button>
+        </form>
     </div>
   )
 }
