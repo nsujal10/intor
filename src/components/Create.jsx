@@ -1,38 +1,44 @@
+import { nanoid } from "nanoid";
 import { useState } from "react";
 
 const Create = (props) => {
 
-console.log(props);
+const todos=props.todos;
+const settodos=props.settodos;
 
-const [fullname, setfullname] = useState("")
-const [age, setage] = useState(5)
+const [title, settitle] = useState("")  
 
 const submithandler = (e) => {
   e.preventDefault();
-  const newuser={fullname, age}
-  console.log(newuser);
-}
+  const newtotdo = {
+    id: nanoid(), 
+    title,
+    isCompleted:false
+  }
 
+  const copytodos= [...todos]
+  copytodos.push(newtotdo)
+  settodos(copytodos)
 
+  settitle("")
+  
+  }
 
   return (
     <div>
-    <h1>Register user</h1>
-      <form onSubmit={submithandler}>
-        <input 
-        onChange={(e) => setfullname(e.target.value)}
-        value={fullname}
-        type="text" 
-        placeholder="Name" />
+    <h1>Create Tasks</h1>
+        <form onSubmit={submithandler}>
+          <input 
+          onChange={(e) => settitle(e.target.value)}
+          value={title}
+          type="text" 
+          placeholder='Task Title' 
+          />
 
-
-        <input 
-        onChange={(e) => setage(e.target.value)}
-        value={age}
-        type="number" 
-        placeholder="Age" />
-        <button>Submit</button>
-      </form></div>
+        <br /> <br />
+          <button>Create Tool</button>
+        </form>
+      </div>
   )
 }
 
