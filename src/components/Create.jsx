@@ -25,18 +25,19 @@ const submithandler = (e) => {
   }
 
   return (
-    <div>
-    <h1>Create Tasks</h1>
+    <div className=" w-[60%] p-10 mx-auto">
+    <h1 className="mb-10 text-5xl font-thin ">Set <span className="text-red-400">Reminder</span>  for <br /> tasks</h1>
         <form onSubmit={submithandler}>
           <input 
-          onChange={(e) => settitle(e.target.value)}
-          value={title}
-          type="text" 
-          placeholder='Task Title' 
+            className="border-b p-2 w-full text-2xl font-thin outline-0"
+            onChange={(e) => settitle(e.target.value)}
+            value={title}
+            type="text" 
+            placeholder='Task Title' 
           />
 
         <br /> <br />
-          <button>Create Tool</button>
+          <button className="text-xl px-10 py-2 border rounded mt-5 ">Create Tool</button>
         </form>
       </div>
   )
