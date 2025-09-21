@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 import "./Read.css"
+import { toast } from "react-toastify";
 
 const Read = (props) => {
 
@@ -10,6 +11,7 @@ const settodos=props.settodos;
 const DeleteHandler = (id) => {
    const filtertodo = todos.filter((todo) => todo.id !== id)
     settodos(filtertodo);
+    toast.error("Task Deleted !")
 }
 
 const renderedtodos = todos.map(todo => {
