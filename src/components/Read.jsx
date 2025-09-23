@@ -1,12 +1,12 @@
-import { Fragment } from "react";
+import { Fragment, useContext } from "react";
 import "./Read.css"
 import { toast } from "react-toastify";
+import { todoscontext } from "../wrapper";
 
-const Read = (props) => {
+const Read = () => {
 
-
-const todos=props.todos;
-const settodos=props.settodos;
+  const [todos, settodos] =useContext(todoscontext)
+  
 
 const DeleteHandler = (id) => {
    const filtertodo = todos.filter((todo) => todo.id !== id)
